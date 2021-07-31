@@ -1,12 +1,14 @@
 package com.example.twittelum2021
 
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_lista.*
 
 class ListaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,14 +21,21 @@ class ListaActivity : AppCompatActivity() {
             "Hoje esta frio!", "Hoje esta frio!", "Hoje esta frio!", "Hoje esta frio!",
             "Hoje esta frio!", "Hoje esta frio!", "Hoje esta frio!", "Hoje esta frio!")
         val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tweets)
-        val lista_tweet = findViewById<ListView>(R.id.lista_tweet)
-
+        //val lista_tweet = findViewById<ListView>(R.id.lista_tweet)
+        // https://antonioleiva.com/kotlin-android-extensions/
         lista_tweet.adapter = adapter
 
 
-        val fab_add = findViewById<FloatingActionButton>(R.id.fab_add)
+        //val fab_add = findViewById<FloatingActionButton>(R.id.fab_add)
         
-        fab_add.setOnClickListener { Snackbar.make(it, "FAB Clicado", Snackbar.LENGTH_LONG).show()}
+        fab_add.setOnClickListener {
+            //Snackbar.make(it, "FAB Clicado", Snackbar.LENGTH_LONG).show()
+            var intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+
+        }
+
+
 
 
 
